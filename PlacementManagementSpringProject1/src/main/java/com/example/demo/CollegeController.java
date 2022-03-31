@@ -19,12 +19,10 @@ public class CollegeController {
     }
     @GetMapping("/college/{id}")
     public ResponseEntity<College> get(@PathVariable Integer id) {
-        try {
+        
         	College college = service.get(id);
             return new ResponseEntity<College>(college, HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<College>(HttpStatus.NOT_FOUND);
-        }      
+       
     }
     // RESTful API method for Create operation
     @PostMapping("/college")
